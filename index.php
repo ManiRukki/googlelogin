@@ -275,6 +275,7 @@ $(()=>{
            console.log(response);
            loginbtn.disabled=false;
     loginbtn.textContent="Sign In"
+      alert("Login SuccessFull");
             // var userobj=response.user;
             // var token=userobj.xa;
             // var provider="email";
@@ -286,6 +287,7 @@ $(()=>{
        .catch(function(error){
            console.log(error);
            loginbtn.disabled=false;
+           alert("Error Loggin In");
         loginbtn.textContent="Sign In"
 
        })
@@ -329,11 +331,12 @@ $(()=>{
        var provider=new firebase.auth.GoogleAuthProvider();
 
        firebase.auth().signInWithPopup(provider).then(function(response){
-      
+        alert("Login SuccessFull");
            console.log(response);
        })
        .catch(function(error){
            console.log(error);
+           alert("Error Loggin In");
        })
 
 
@@ -347,12 +350,13 @@ $(()=>{
 firebase.auth().signInWithPopup(provider).then(function(response){
     var token = result.credential.accessToken;
       var user = result.user;
-
+      alert("Login SuccessFull");
     console.log(token);
     console.log(user);
 })
 .catch(function(error){
     console.log(error);
+    alert("Error Loggin In");
 })
 
 
