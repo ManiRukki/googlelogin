@@ -275,19 +275,17 @@ $(()=>{
            console.log(response);
            loginbtn.disabled=false;
     loginbtn.textContent="Sign In"
-      alert("Login SuccessFull");
-            // var userobj=response.user;
-            // var token=userobj.xa;
-            // var provider="email";
-            // var email=loginemail.value;
-            // if(token!=null && token!=undefined && token!=""){
-            // sendDatatoServerPhp(email,provider,token,email);
-            // }
+            var userobj=response.user;
+            var token=userobj.xa;
+            var provider="email";
+            var email=loginemail.value;
+            if(token!=null && token!=undefined && token!=""){
+            sendDatatoServerPhp(email,provider,token,email);
+            }
        })
        .catch(function(error){
            console.log(error);
            loginbtn.disabled=false;
-           alert("Error Loggin In");
         loginbtn.textContent="Sign In"
 
        })
@@ -331,36 +329,50 @@ $(()=>{
        var provider=new firebase.auth.GoogleAuthProvider();
 
        firebase.auth().signInWithPopup(provider).then(function(response){
-        alert("Login SuccessFull");
+      
            console.log(response);
        })
        .catch(function(error){
            console.log(error);
-           alert("Error Loggin In");
        })
 
 
    }
    //=======================End Login With Google==================
    //======================Login With Facebook==========================
-   var facebooklogin=document.getElementById("facebooklogin");
-   facebooklogin.onclick=function(){
+//    var facebooklogin=document.getElementById("facebooklogin");
+//    facebooklogin.onclick=function(){
+//     var provider=new firebase.auth.FacebookAuthProvider();
+
+// firebase.auth().signInWithPopup(provider).then(function(response){
+//     var token = result.credential.accessToken;
+//       var user = result.user;
+
+//     console.log(token);
+//     console.log(user);
+// })
+// .catch(function(error){
+//     console.log(error);
+// })
+
+
+//    }
+
+var facebooklogin=document.getElementById("facebooklogin");
+facebooklogin.onclick=function(){
     var provider=new firebase.auth.FacebookAuthProvider();
-
-firebase.auth().signInWithPopup(provider).then(function(response){
-    var token = result.credential.accessToken;
-      var user = result.user;
-      alert("Login SuccessFull");
-    console.log(token);
-    console.log(user);
-})
-.catch(function(error){
-    console.log(error);
-    alert("Error Loggin In");
-})
+    firebase.auth().signInWithPopup(provider).then(function(response){
+      alert("LoginSuccesFull");
+      console.log(response);
+  })
+  .catch(function(error){
+      console.log(error);
+      console.log("Error In Login");
+  })
 
 
-   }
+
+}
    //======================End Login With Facebook==========================
 </script>
 </body>
